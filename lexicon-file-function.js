@@ -13,19 +13,33 @@ exports.getFile = () => {
 
     /**
      * Return a new promise so that an asynchronous action can be called
-     * If there is an error in reading in the file reject(return the error)
-     * If the operation is successful resolve(return the file)
+     * If there is an error in reading in the file reject in the promise(return the error)
+     * If the operation is successful resolve in the promise(return the file)
      */
     return new Promise((resolve, reject) => {
 
         //read in the lexicon file
         fileSystem.readFile('./lexicon.txt', 'utf8', (err, file) => {
+
+            //if error return the error
             if (err) {
                 reject({
                     error: err
                 })
             } else {
-                resolve(file)
+                /**
+                 * if success base array object format on 
+                 * the AHLT lecture 4 Lexicon entries for a simple parser
+                 * then return the lexicon file
+                 */
+                resolve(
+                    file.split('\n').map(filter => filter.split(' '))
+                    .map(filther => ({
+                        part_of_speech: filther[0],
+                        root: filther[1],
+                        number: filther[2],
+                    }))
+                )
             }
         });
     });

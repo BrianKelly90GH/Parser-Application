@@ -17,12 +17,31 @@ const getLexiconFile = require('./lexicon-file-function');
  * TODO: if there is time use express generator to create a simple web-app using pug
  * Ask the user a question
  */
-readline.question(`Please enter a sentence to be parsed:  `, (sentence) => {
-    console.log(`${sentence}`);
-    readline.close();
-})
+readline.question(`Please enter a sentence to be parsed:  `, sentence => {
 
-//get the lexiccon file for testing
-getLexiconFile.getFile().then(file => {
-    console.log(file);
-})
+    //sentenceArray for storing the users sentence split up into array segments
+    let sentenceArray;
+
+    //lexiFile for string the lexicon parser rules
+    let lexiFile;
+
+    //get the lexicon entries formated the array of objects on the lecture 4 notes
+    getLexiconFile.getFile().then(file => {
+
+        //formated the array of objects on the lecture notes
+        lexiFile = file;
+
+        console.log(lexiFile);
+    });
+
+    //split the sentence in to an array of string of testing it against the lexicon entries
+    sentenceArray = sentence
+        .toLowerCase()
+        .split('.')
+        .join('')
+        .split(' ');
+
+    console.log(sentenceArray);
+
+    readline.close();
+});
