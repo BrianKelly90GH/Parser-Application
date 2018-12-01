@@ -43,5 +43,16 @@ readline.question(`Please enter a sentence to be parsed:  `, sentence => {
 
     console.log(sentenceArray);
 
+    /**
+     * Psuedo-code for the grammar. Based on rules_1.png
+     * 
+     * if sentenceArray < 4 it has to be a noun phase
+     * check against the lexicon entries
+     * 
+     * if error print failure
+     * 
+     * else print success
+     */
+
     readline.close();
 });
