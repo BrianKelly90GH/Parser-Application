@@ -28,9 +28,9 @@ exports.getFile = () => {
                 })
             } else {
                 /**
-                 * if success base array object format on 
+                 * if success base lexicon array object format on 
                  * the AHLT lecture 4 Lexicon entries for a simple parser
-                 * then return the lexicon file
+                 * then return the object structured lexicon entries
                  */
                 resolve(
                     file.split('\n').map(filter => filter.split(' '))
