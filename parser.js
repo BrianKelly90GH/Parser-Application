@@ -60,8 +60,12 @@ lexiconFile.getFileFunction().then(lexiFile => {
          */
 
         if (sentenceArray.length < 4) {
-            nounPhrase.nounPhraseFunction(sentenceArray, lexiFile).then(sentence => {
-                console.log(sentence)
+            nounPhrase.nounPhraseFunction(sentenceArray, lexiFile).then(noun_phrase => {
+                if (noun_phrase === 'Sentence is not correct') {
+                    console.log(noun_phrase);
+                } else {
+                    console.log(`your sentence [${sentence}] is correct`);
+                }
             }).catch((err) => {
                 console.log(err);
             })
