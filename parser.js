@@ -11,21 +11,31 @@ const readline = require('readline').createInterface({
 /**
  * Import the lexicon-file-function
  */
-const getLexiconFile = require('./lexicon-file-function');
+const lexiconFile = require('./lexicon-file-function');
+
+/**
+ * Import the lnoun-phrase-function
+ */
+const nounPhrase = require('./noun-phrase-function');
+
+
 
 /**
  * call the getfile method in the lexicon-file-function file
  * once the function is executed(.then (used the returned data) ) 
  */
-getLexiconFile.getFile().then(lexiFile => {
+lexiconFile.getFileFunction().then(lexiFile => {
 
-    console.log(lexiFile);
+    /**
+     * Words the user can input
+     */
+    console.log('The/a man/men/woman/women bite(s)/like(s) the green dog\n')
 
     /**
      * TODO: if there is time use express generator to create a simple web-app using pug
      * Ask the user a question
      */
-    readline.question(`Please enter a sentence to be parsed:  `, sentence => {
+    readline.question(`Please enter a sentence from the words above to be parsed:  `, sentence => {
 
         //sentenceArray for storing the users sentence split up into array segments
         let sentenceArray;
@@ -50,31 +60,14 @@ getLexiconFile.getFile().then(lexiFile => {
          */
 
         if (sentenceArray.length < 4) {
-            /**
-             * Psuedo-code for the grammar of a noun phase. Based on rules_1.png
-             * 
-             * if the first segment in the sentenceArray is = to one of the Determiners
-             * set the noun_phase array fist segment to the article
-             * 
-             * else print failure
-             */
-
-            //for storing a noun phase sentence or section of sentence
-            let noun_phase;
-
-            //for storing the start of the sentence Determiners /articles (the or a)
-            let article;
-
-            article = lexiFile.filter(entries => entries.root === sentenceArray[0]);
-
-            if (article.length === 0) {
-                console.log('Sentence is not correct')
-            } else if (article[0].part_of_speech.includes('DET')) {
-                console.log(article);
-            } else {
-                console.log('Sentence is not correct')
-            }
+            nounPhrase.nounPhraseFunction(sentenceArray, lexiFile).then(sentence => {
+                console.log(sentence)
+            }).catch((err) => {
+                console.log(err);
+            })
         }
         readline.close();
     });
+}).catch((err) => {
+    console.log(err);
 });
