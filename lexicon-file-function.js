@@ -9,7 +9,7 @@ const fileSystem = require('fs');
 /**
  * Export function to be used in the parser.js file
  */
-exports.getFile = () => {
+exports.getFileFunction = () => {
 
     /**
      * Return a new promise so that an asynchronous action can be called
@@ -21,15 +21,16 @@ exports.getFile = () => {
         //read in the lexicon file
         fileSystem.readFile('./lexicon.txt', 'utf8', (err, file) => {
 
-            //if error return the error
+            //if error return the error message
             if (err) {
-                reject({
-                    error: err
-                })
+                reject('There was an error reading in the file')
             } else {
                 /**
                  * if success base lexicon array object format on 
                  * the AHLT lecture 4 Lexicon entries for a simple parser
+                 * part_of_speech = determiner, verb, adjective or noun
+                 * root = the word
+                 * number = singular or  plural
                  * then return the object structured lexicon entries
                  */
                 resolve(
