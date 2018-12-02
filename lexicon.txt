@@ -1,4 +1,4 @@
-DET the singular plural
+DET the singular
 DET a singular
 N man singular
 N woman singular
