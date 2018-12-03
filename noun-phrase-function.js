@@ -28,15 +28,17 @@ exports.nounPhraseFunction = (userSentence, lexiEntries) => {
 
         determiner = lexiEntries.filter(entries => entries.root === userSentence[0]);
 
+        console.log(determiner);
+
         if (determiner.length === 0) {
+
             reject('Sentence is not correct');
-            console.log('1')
         } else if (determiner[0].part_of_speech.includes('DET')) {
             userSentence.shift();
             noun_phrase.DET = determiner;
         } else {
+
             reject('Sentence is not correct');
-            console.log('2')
         }
 
         //for storing words of the userSentence
@@ -45,24 +47,25 @@ exports.nounPhraseFunction = (userSentence, lexiEntries) => {
 
         if (word.length === 0) {
             reject('Sentence is not correct');
-            console.log('3')
         }
         if (word[0].part_of_speech.includes('ADJ')) {
             userSentence.shift();
-            noun_phrase.Word = word;
+            noun_phrase.ADJ = word;
         }
-        if (word[0].part_of_speech.includes('N')) {
-            console.log('includes N')
+        word = lexiEntries.filter(entries => entries.root === userSentence[0]);
+        console.log(word)
+
+        if (word.length === 0) {
+            reject('Sentence is not correct');
+        } else if (word[0].part_of_speech.includes('N')) {
             noun_phrase.Word = word;
-            if (noun_phrase.DET.includes('the')) {
-                console.log('includes the')
-                noun_phrase.DET.number = noun_phrase.Word.number;
-                userSentence.shift();
-                resolve(noun_phrase);
-            } else {
-                reject('Sentence is not correct');
-                console.log('4')
+            if (noun_phrase.DET[0].root.includes('the')) {
+                noun_phrase.DET[0].number = noun_phrase.Word[0].number;
             }
+            userSentence.shift();
+            resolve(noun_phrase);
+        } else {
+            reject('Sentence is not correct');
         }
     });
 };

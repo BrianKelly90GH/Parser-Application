@@ -34,11 +34,10 @@ exports.getFileFunction = () => {
                  * then return the object structured lexicon entries
                  */
                 resolve(
-                    file.split('\n').map(filter => filter.split(' '))
-                    .map(filther => ({
-                        part_of_speech: filther[0],
-                        root: filther[1],
-                        number: filther[2],
+                    file.split('\n').map(entries => entries.split(' ')).map(entries => ({
+                        part_of_speech: entries[0],
+                        root: entries[1],
+                        number: entries[2],
                     }))
                 )
             }
