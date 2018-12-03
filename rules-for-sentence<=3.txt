@@ -1,5 +1,6 @@
 ------------------------------
-sentence structure start rules
+sentence structure rules
+if sentence elements is <=3
 ------------------------------
 
 sentence begins with a 

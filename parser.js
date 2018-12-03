@@ -59,7 +59,7 @@ lexiconFile.getFileFunction().then(lexiFile => {
          * else print success
          */
 
-        if (sentenceArray.length < 4) {
+        if (sentenceArray.length <= 3) {
             nounPhrase.nounPhraseFunction(sentenceArray, lexiFile).then(noun_phrase => {
                 if (noun_phrase === 'Sentence is not correct') {
                     console.log(noun_phrase);

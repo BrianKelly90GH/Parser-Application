@@ -28,36 +28,37 @@ exports.nounPhraseFunction = (userSentence, lexiEntries) => {
 
         determiner = lexiEntries.filter(entries => entries.root === userSentence[0]);
 
-        console.log(determiner);
-
         if (determiner.length === 0) {
-
             reject('Sentence is not correct');
-        } else if (determiner[0].part_of_speech.includes('DET')) {
+        }
+        if (determiner[0].part_of_speech.includes('DET')) {
+            console.log(determiner);
             userSentence.shift();
             noun_phrase.DET = determiner;
         } else {
-
             reject('Sentence is not correct');
         }
-
         //for storing words of the userSentence
         let word;
         word = lexiEntries.filter(entries => entries.root === userSentence[0]);
 
         if (word.length === 0) {
+            console.log(word)
             reject('Sentence is not correct');
         }
         if (word[0].part_of_speech.includes('ADJ')) {
+            console.log(word)
             userSentence.shift();
             noun_phrase.ADJ = word;
         }
         word = lexiEntries.filter(entries => entries.root === userSentence[0]);
-        console.log(word)
 
         if (word.length === 0) {
+            console.log(word)
             reject('Sentence is not correct');
-        } else if (word[0].part_of_speech.includes('N')) {
+        }
+        if (word[0].part_of_speech.includes('N') && userSentence.length <= 2) {
+            console.log(word)
             noun_phrase.Word = word;
             if (noun_phrase.DET[0].root.includes('the')) {
                 noun_phrase.DET[0].number = noun_phrase.Word[0].number;
