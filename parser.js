@@ -14,9 +14,14 @@ const readline = require('readline').createInterface({
 const lexiconFile = require('./lexicon-file-function');
 
 /**
- * Import the lnoun-phrase-function
+ * Import the noun-phrase-function
  */
 const nounPhrase = require('./noun-phrase-function');
+
+/**
+ * Import the print-function
+ */
+const print = require('./print-function');
 
 
 
@@ -51,7 +56,7 @@ lexiconFile.getFileFunction().then(lexiFile => {
         /**
          * Psuedo-code for the grammar. Based on rules_1.png
          * 
-         * if sentenceArray < 4 it has to be a noun phase
+         * if sentenceArray <=3 it has to be a noun phase
          * check against the lexicon entries
          * 
          * if error print failure
@@ -64,7 +69,7 @@ lexiconFile.getFileFunction().then(lexiFile => {
                 if (noun_phrase === 'Sentence is not correct') {
                     console.log(noun_phrase);
                 } else {
-                    console.log(`your sentence [${sentence}] is correct`);
+                    print.printFunction(noun_phrase);
                 }
             }).catch((err) => {
                 console.log(err);
