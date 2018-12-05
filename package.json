@@ -1,0 +1,24 @@
+{
+  "name": "briankelly_b00082716",
+  "version": "1.0.0",
+  "description": "this is a parser for AHLT",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BrianKelly90GH/Parser-Application.git"
+  },
+  "author": "Brian Kelly",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BrianKelly90GH/Parser-Application/issues"
+  },
+  "homepage": "https://github.com/BrianKelly90GH/Parser-Application#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "pug": "^2.0.3"
+  }
+}
