@@ -1,0 +1,34 @@
+------------------------------
+sentence structure rules
+if sentence elements is >3
+------------------------------
+
+sentence begins with a 
+determiner (a, the) 
+
+then sentence can have (noun or adjective) 
+cant have verb this early in the sentence as this would be incorrect
+
+
+however base on the determiner and the verb rules for this must be implemented for the sentence
+
+** Rules for the start of the sentence **
+-------------------------------------------------------------------------------------------------------------
+if determiner is (a) and the next element in the sentence is a noun the noun must be singular (man or woman)
+
+if determiner is (a) and the next element in the sentence is a adjective (green) 
+and then the next element in the sentence is a noun the noun must be singular (man or woman)
+
+if determiner is (the) and the next element in the sentence is a noun it can be plural or singular
+(woman, women)
+
+if determiner is (the) and the next element in the sentence is a adjective (green)
+and the next element in the sentence is a noun it can be plural or singular (woman, women)
+-------------------------------------------------------------------------------------------------------------
+
+** Rules for the sentence after the verb **
+-------------------------------------------------------------------------------------------------------------
+if determiner is (a) the verb must be plural
+
+if determiner is (the) the verb must be singular
+-------------------------------------------------------------------------------------------------------------
