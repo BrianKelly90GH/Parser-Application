@@ -1,0 +1,11 @@
+html
+   head
+      title #{title}
+      include includes/stylesheet-links.pug
+      body(class = 'bg-dark' style='font-family: Courier New; color: black;')
+        nav(class="navbar navbar-expand-lg navbar-dark bg-primary border-bottom border-dark")
+            h5(class="navbar-brand mb-0 font-weight-bold h1 text-white") Parser-Application | By Brian Kelly/B00082716
+        
+        h5(style="text-align:center; margin-top:2rem; color: white;") Acceptable Words:
+        h6(style="text-align:center; color: white;") The/a man/men/woman/women bite(s)/like(s) the green dog
+        block content

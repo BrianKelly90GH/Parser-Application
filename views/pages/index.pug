@@ -1,0 +1,20 @@
+extends ../root.pug
+
+block content
+    div(class="card" class="mx-auto bg-primary border border-white" style="margin-top: 1rem; width: 600px;")
+        div(class="card-body" style="width: 600px;")
+            form(method="POST" action="/parse/:sentence")
+                div(class="from-group input-group-lg")
+                    input(type="text" class="form-control bg-dark text-white border border-white" name="sentence" placeholder= "Enter Your Sentence")
+                    button(type="submit" class="btn btn-dark mt-2 border border-white") Submit
+                    
+    
+    #response
+        if error
+            p(style="margin-top: 1rem; text-align:center; color: red;") Error this is not grammatical correct
+            p(style="margin-top: 1rem; text-align:center; color: red;") #{error}
+        
+        if result
+            p(style="front-weight:bold; margin-top: 1rem; text-align:center; color: green;") Success this is grammatical correct
+            p(style="text-align:center; color: white;") #{result}
+                    
