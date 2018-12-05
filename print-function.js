@@ -5,16 +5,16 @@ exports.printFunction = (userSentence, sentence) => {
 
     if (Object.keys(userSentence).length == 2) {
 
-        console.log(`Bracketed phrasal structure : S[NP[DT[${userSentence.DET[0].root}]N[${userSentence.Word[0].root}]]]`);
-
         console.log(`\x1b[32m`, `You entered [${sentence}] [Sentence Valid]`);
+        console.log(`Bracketed phrasal structure : S[NP[DT[${userSentence.DET[0].root}]N[${userSentence.Word[0].root}]]]`);
+        return (`Bracketed phrasal structure : S[NP[DT[${userSentence.DET[0].root}]N[${userSentence.Word[0].root}]]]`);
+
     }
 
     if (Object.keys(userSentence).length == 3) {
-
-        console.log(`Bracketed phrasal structure : S[NP[DT[${userSentence.DET[0].root}]JJ[${userSentence.ADJ[0].root}]N[${userSentence.Word[0].root}]]]`);
-
         console.log(`\x1b[32m`, `You entered [${sentence}] [Sentence Valid]`);
+        console.log(`Bracketed phrasal structure : S[NP[DT[${userSentence.DET[0].root}]JJ[${userSentence.ADJ[0].root}]N[${userSentence.Word[0].root}]]]`);
+        return (`Bracketed phrasal structure : S[NP[DT[${userSentence.DET[0].root}]JJ[${userSentence.ADJ[0].root}]N[${userSentence.Word[0].root}]]]`);
     }
     if (Object.keys(userSentence).length == 4) {
 
