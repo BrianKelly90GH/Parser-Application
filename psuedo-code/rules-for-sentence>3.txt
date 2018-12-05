@@ -1,6 +1,6 @@
 ------------------------------
 sentence structure rules
-if sentence elements is >3
+if sentence elements is > 3
 ------------------------------
 
 sentence begins with a 
@@ -25,10 +25,13 @@ if determiner is (the) and the next element in the sentence is a noun it can be 
 if determiner is (the) and the next element in the sentence is a adjective (green)
 and the next element in the sentence is a noun it can be plural or singular (woman, women)
 -------------------------------------------------------------------------------------------------------------
-
-** Rules for the sentence after the verb **
+** Rules for the sentence with the verb **
 -------------------------------------------------------------------------------------------------------------
 if determiner is (a) the verb must be plural
 
 if determiner is (the) the verb must be singular
+
+if the verb is (bite/like) the noun must be plural (men/women) in the first noun_phrase 
+
+if the verb is (bites/likes) the noun must be singular (man/woman) in the first noun_phrase 
 -------------------------------------------------------------------------------------------------------------
