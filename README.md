@@ -4,7 +4,7 @@ Parser Application that takes input and analyse a set of regular expressions tak
 
 ## To Run The Application
 
-- must have node.js installed on machine
+- you must have node.js installed on machine
 - clone the repo then cd into the directory and in the terminal type (npm install)
 - if you already have the directory cd into it and in the terminal type (npm install)
 - once the node modules are installed then in the terminal type (node server.js)
